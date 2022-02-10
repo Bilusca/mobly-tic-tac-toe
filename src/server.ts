@@ -3,6 +3,8 @@ import "express-async-errors";
 import AppError from "./errors/AppError";
 import routes from "./routes";
 
+const PORT = process.env.PORT || 5000;
+
 const app = express();
 app.use(express.json());
 app.use(routes);
@@ -23,6 +25,6 @@ app.use(
   }
 );
 
-app.listen(8080, () => {
-  console.log("Na porta 8080");
+app.listen(PORT, () => {
+  console.log(`Running on ${PORT}`);
 });
