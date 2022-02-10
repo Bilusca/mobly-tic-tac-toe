@@ -15,6 +15,10 @@ boardRouter.get(
   (request: Request<any, any, any, RequestQuery>, response: Response) => {
     const { board } = request.query;
 
+    if (board === undefined) {
+      throw new AppError("Por favor, informe o board.");
+    }
+
     if (board.length > 9) {
       throw new AppError("Este board é inválido.");
     }
